@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kippenberg Gymnasium – Stundenplan</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="brand">
+                <span class="brand-mark">K</span>
+                <div>
+                    <span class="brand-name">Kippenberg</span>
+                    <span class="brand-sub">Gymnasium · Stundenplan</span>
+                </div>
+            </div>
+            <div class="header-controls">
+                <button class="btn btn-ghost" id="btn-prev" title="Vorherige Woche" aria-label="Vorherige Woche">
+                    &#8592;
+                </button>
+                <button class="btn btn-ghost" id="btn-today">Heute</button>
+                <button class="btn btn-ghost" id="btn-next" title="Nächste Woche" aria-label="Nächste Woche">
+                    &#8594;
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Week label -->
+    <div class="week-banner">
+        <span id="week-label">Lade …</span>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Day tabs (mobile) -->
+        <nav class="day-tabs" id="day-tabs"></nav>
+
+        <!-- Loading / error states (outside the grid so innerHTML resets don't detach them) -->
+        <div class="loading-state" id="loading">
+            <div class="spinner"></div>
+            <p>Stundenplan wird geladen…</p>
+        </div>
+        <div class="error-state hidden" id="error-state">
+            <span class="error-icon">⚠</span>
+            <p id="error-msg">Fehler beim Laden des Stundenplans.</p>
+        </div>
+
+        <!-- Timetable grid -->
+        <div class="timetable-wrap hidden" id="timetable-wrap">
+            <div class="timetable" id="timetable"></div>
+        </div>
+    </main>
+
+    <!-- Lesson detail drawer -->
+    <div class="drawer-overlay hidden" id="drawer-overlay"></div>
+    <aside class="drawer hidden" id="drawer">
+        <button class="drawer-close" id="drawer-close" aria-label="Schließen">&#10005;</button>
+        <div class="drawer-content" id="drawer-content"></div>
+    </aside>
+
+    <script src="app.js"></script>
+</body>
+</html>
